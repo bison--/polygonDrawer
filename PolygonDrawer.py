@@ -31,7 +31,12 @@ class PolygonDrawer:
         polygon_mover = PolygonMover(self.screen, draw_polygon)
         self.all_modules.append(polygon_mover)
 
-        controls_help = TextBottom(self.screen, ['Test L1', 'L2'])
+        controls_help = TextBottom(self.screen, [
+            'Controls:',
+            'Draw: Left Mouse Button (2 points required!)',
+            'Move: Arrow keys | Rotate: Q / E | Snap Left: A | Snap Up: W',
+            'Undo: ctrl+z | Save Json: 1 | Save Python list: 2 '
+        ])
         self.all_modules.append(controls_help)
 
     def run_game(self):

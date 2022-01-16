@@ -1,4 +1,7 @@
+import json
+import os
 import pygame
+import datetime
 from pygame.surface import Surface
 from local_modules import BaseModule
 
@@ -10,6 +13,7 @@ class DrawPolygon(BaseModule.BaseModule):
         self.timer_interval = 0
         self.color = (0, 148, 220)
         self.line_size = 2
+        self.save_path = 'export'
 
         self.points = []
 
@@ -32,7 +36,18 @@ class DrawPolygon(BaseModule.BaseModule):
     def handle_input_mouse(self, event: pygame.event):
         if event.button == pygame.BUTTON_LEFT:
             self.points.append(pygame.mouse.get_pos())
-        print(self.points)
+        #print(self.points)
+
+    def handle_input_keyboard(self, event):
+        if event.key == pygame.K_1:
+            file_name = os.path.join(self.save_path, datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S.json"))
+            with open(file_name, 'w') as file:
+                file.write(json.dumps(self.points))
+
+        if event.key == pygame.K_2:
+            file_name = os.path.join(self.save_path, datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S.py"))
+            with open(file_name, 'w') as file:
+                file.write('data = ' + str(self.points))
 
     def draw(self):
         if len(self.points) >= 2:
