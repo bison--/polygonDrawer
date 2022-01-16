@@ -39,16 +39,22 @@ class DrawPolygon(BaseModule.BaseModule):
         #print(self.points)
 
     def handle_input_keyboard(self, event):
-        if event.key == pygame.K_1:
+        if event.key == pygame.K_TAB:
+            if self.line_size == 2:
+                self.line_size = 0
+            else:
+                self.line_size = 2
+        elif event.key == pygame.K_1:
             file_name = os.path.join(self.save_path, datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S.json"))
             with open(file_name, 'w') as file:
                 file.write(json.dumps(self.points))
-
-        if event.key == pygame.K_2:
+        elif event.key == pygame.K_2:
             file_name = os.path.join(self.save_path, datetime.datetime.now().strftime("%Y-%m-%d_%H_%M_%S.py"))
             with open(file_name, 'w') as file:
                 file.write('data = ' + str(self.points))
 
     def draw(self):
-        if len(self.points) >= 2:
+        if len(self.points) >= 2 and self.line_size > 0:
+            pygame.draw.polygon(self._screen, self.color, self.points, self.line_size)
+        elif len(self.points) >= 3 and self.line_size == 0:
             pygame.draw.polygon(self._screen, self.color, self.points, self.line_size)

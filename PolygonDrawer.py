@@ -33,7 +33,8 @@ class PolygonDrawer:
 
         controls_help = TextBottom(self.screen, [
             'Controls:',
-            'Draw: Left Mouse Button (2 points required!)',
+            'Draw: Left Mouse Button (2 points required, filled 3 points)',
+            'TAB: toggle line / filled',
             'Move: Arrow keys | Rotate: Q / E | Snap Left: A | Snap Up: W',
             'Undo: ctrl+z | Save Json: 1 | Save Python list: 2 '
         ])
