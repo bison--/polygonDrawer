@@ -8,7 +8,7 @@ class TextBottom(BaseModule.BaseModule):
     def __init__(self, screen: Surface, text_lines: list):
         super().__init__(screen)
 
-        self.text_lines = text_lines
+        self.text_lines: list = text_lines
         self.text_lines_reversed = []
 
         self.font_size = 30
@@ -18,6 +18,15 @@ class TextBottom(BaseModule.BaseModule):
         self.font = None  # type: pygame.font or None
         self.__real_position = None  # type: tuple or None
         self.text_size = (0, 0)
+
+        self.calculate()
+
+    def set_text(self, text: list or str):
+        if type(text) is list:
+            self.text_lines = text
+        elif type(text) is str:
+            self.text_lines.clear()
+            self.text_lines.append(text)
 
         self.calculate()
 

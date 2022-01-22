@@ -4,6 +4,7 @@ from local_modules.BaseModule import BaseModule
 from local_modules.DrawPolygon import DrawPolygon
 from local_modules.MousePosition import MousePosition
 from local_modules.PolygonMover import PolygonMover
+from local_modules.PolygonNodeMover import PolygonNodeMover
 from local_modules.TextBottom import TextBottom
 
 
@@ -27,6 +28,15 @@ class PolygonDrawer:
 
         draw_polygon = DrawPolygon(self.screen)
         self.all_modules.append(draw_polygon)
+
+        polygon_node_mover = PolygonNodeMover(self.screen, draw_polygon)
+        self.all_modules.append(polygon_node_mover)
+
+        node_mover_text = TextBottom(self.screen, [])
+        node_mover_text.color = polygon_node_mover.color
+        polygon_node_mover.text_object = node_mover_text
+        node_mover_text.position = (10, 150)
+        self.all_modules.append(node_mover_text)
 
         polygon_mover = PolygonMover(self.screen, draw_polygon)
         self.all_modules.append(polygon_mover)

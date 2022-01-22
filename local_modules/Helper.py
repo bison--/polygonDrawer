@@ -1,4 +1,11 @@
-from math import radians, cos, sin
+from math import radians, cos, sin, sqrt
+
+
+def calculate_distance(pos1, pos2):
+    x1, y1 = pos1
+    x2, y2 = pos2
+    dist = sqrt((x2 - x1)**2 + (y2 - y1)**2)
+    return dist
 
 
 def rotate_polygon(points, degrees):
