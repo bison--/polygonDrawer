@@ -38,7 +38,6 @@ class DrawPolygon(BaseModule.BaseModule, ABC):
     def handle_input_mouse(self, event: pygame.event):
         if event.button == pygame.BUTTON_LEFT:
             self.points.append(pygame.mouse.get_pos())
-        #print(self.points)
 
     def handle_input_keyboard(self, event):
         if event.key == pygame.K_TAB:

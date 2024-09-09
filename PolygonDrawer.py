@@ -46,6 +46,7 @@ class PolygonDrawer:
             'Draw: Left Mouse Button (2 points required, filled 3 points)',
             'TAB: toggle line / filled',
             'Move: Arrow keys | Rotate: Q / E | Snap Left: A | Snap Up: W',
+            'Move selected node: J, K, L, I'
             'Undo: ctrl+z | Save Json: 1 | Save Python list: 2 '
         ])
         self.all_modules.append(controls_help)
@@ -91,8 +92,7 @@ class PolygonDrawer:
                 elif event.type == pygame.MOUSEBUTTONUP:
                     for module in self.all_modules:
                         module.handle_input_mouse(event)
-                #else:
-                    #print(event.type)
+
 
             for module in self.all_modules:
                 module.timer()
