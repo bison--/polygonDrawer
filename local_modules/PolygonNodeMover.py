@@ -76,7 +76,7 @@ class PolygonNodeMover(BaseModule.BaseModule, ABC):
             return
 
         if event.mod & pygame.KMOD_LCTRL:
-            pass
+            print("alternate modifier not implemented yet")
 
     def handle_input_keyboard_pressed(self, keys):
         if not self.has_node():

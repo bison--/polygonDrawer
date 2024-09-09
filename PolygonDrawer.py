@@ -92,6 +92,7 @@ class PolygonDrawer:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.game_is_running = False
+
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     self.game_is_running = False

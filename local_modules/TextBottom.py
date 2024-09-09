@@ -18,7 +18,6 @@ class TextBottom(BaseModule.BaseModule, ABC):
         self.position = (10, 10)
 
         self.font = None  # type: pygame.font or None
-        self.__real_position = None  # type: tuple or None
         self.text_size = (0, 0)
 
         self.calculate()
