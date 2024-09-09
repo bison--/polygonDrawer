@@ -79,20 +79,7 @@ class PolygonDrawer:
             for module in self.all_modules:
                 module.handle_input_keyboard_pressed(keys)
 
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.game_is_running = False
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        self.game_is_running = False
-                    else:
-                        for module in self.all_modules:
-                            module.handle_input_keyboard(event)
-
-                elif event.type == pygame.MOUSEBUTTONUP:
-                    for module in self.all_modules:
-                        module.handle_input_mouse(event)
-
+            self.__process_events()
 
             for module in self.all_modules:
                 module.timer()
@@ -100,3 +87,18 @@ class PolygonDrawer:
 
             # final draw
             pygame.display.flip()
+
+    def __process_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.game_is_running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    self.game_is_running = False
+                else:
+                    for module in self.all_modules:
+                        module.handle_input_keyboard(event)
+
+            elif event.type == pygame.MOUSEBUTTONUP:
+                for module in self.all_modules:
+                    module.handle_input_mouse(event)
