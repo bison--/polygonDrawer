@@ -1,9 +1,11 @@
+from abc import ABC
+
 import pygame
 from pygame.surface import Surface
 from local_modules import BaseModule, DrawPolygon, Helper
 
 
-class PolygonNodeMover(BaseModule.BaseModule):
+class PolygonNodeMover(BaseModule.BaseModule, ABC):
 
     def __init__(self, screen: Surface, polygon_object: DrawPolygon.DrawPolygon):
         super().__init__(screen)

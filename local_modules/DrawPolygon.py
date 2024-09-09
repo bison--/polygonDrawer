@@ -1,12 +1,14 @@
 import json
 import os
+from abc import ABC
+
 import pygame
 import datetime
 from pygame.surface import Surface
 from local_modules import BaseModule
 
 
-class DrawPolygon(BaseModule.BaseModule):
+class DrawPolygon(BaseModule.BaseModule, ABC):
 
     def __init__(self, screen: Surface):
         super().__init__(screen)

@@ -29,10 +29,6 @@ class PolygonDrawer:
         draw_polygon = DrawPolygon(self.screen)
         self.all_modules.append(draw_polygon)
 
-        #import export.cloud1
-        #draw_polygon.points = export.cloud1.data
-        #draw_polygon.calculate()
-
         polygon_node_mover = PolygonNodeMover(self.screen, draw_polygon)
         self.all_modules.append(polygon_node_mover)
 
